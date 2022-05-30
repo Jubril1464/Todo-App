@@ -1,0 +1,101 @@
+body{
+  font-size: 60%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: linear-gradient(to right bottom, rgba(0,0,0,.3),rgba(0,0,0,.5)),
+  url('../liyepapa-20220214-0012.jpg');
+  background-size: cover;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+.app__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1rem;
+ }
+.container{
+  background-color: lightblue;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  
+}
+
+.form__group{
+  margin: 20px 0;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+}
+.form__label{
+  display: block;
+  margin-bottom: .2rem;
+  font-size: 1rem;
+}
+.form__input{
+  padding:.6rem .4rem ;
+  font-size: 12px;
+  background-color: #f6f6f6;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-family: inherit;
+}
+.form__input:focus{
+  outline: 0;
+}
+.btn{
+  display: inline-block;
+  padding:.3rem .5rem ;
+  margin:5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  }
+
+.btn:focus{
+  outline: none;
+}
+.btn--block{
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: .5rem ;
+  transition: all .5s;
+}
+.btn--block:hover{
+  background-color: rgba(0,0,0,.1);
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
+.app-header{
+margin-right: 5rem;
+}
+.task{
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.delIcon{
+  color: red;
+  cursor: pointer;
+}
+.editIcon{
+  color: aqua;
+  cursor: pointer;
+}
+
+
