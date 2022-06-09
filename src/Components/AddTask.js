@@ -1,35 +1,36 @@
 import { useState } from "react";
 import '../index.css'
 import Swal from 'sweetalert2'
-const AddTask = ({onSave}) => {
+const AddTask = ({onSave, edit}) => {
     const [text, setText] = useState('');
-    const [day, setDay] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
-        if(!text && !day){
+        if(!text && !date){
             Swal.fire({
                 icon:'error',
                 title: 'Ooops....',
                 text:'Fill in your task and date or close the form!'
             })
 
-        } else if (!text && day){
+        } else if (!text && date){
             Swal.fire({
                 icon:'error',
                 title:'Ooops...',
                 text:'Fill in your task!'
             })
-        } else if(text && !day){
+        } else if(text && !date){
             Swal.fire({
                 icon:'error',
                 title:'Ooops...',
                 text:'Fill in your day'
             })
         } else {
-            onSave({text, day})
+            onSave({text, date,time})
         }
         setText('');
-        setDay('')
+        setDate('')
 
 
         
@@ -37,6 +38,7 @@ const AddTask = ({onSave}) => {
 
     return(
         <div>
+        
             <form  className="form" onSubmit={onSubmit}>
                 <div className="form__group">
                 <label htmlFor="text" className="form__label">Text</label>
@@ -49,13 +51,23 @@ const AddTask = ({onSave}) => {
                    
                 </div>
                 <div className="form__group">
-                <label htmlFor="day" className="form__label">Day & Time</label>
-                    <input type="text"
+                <label htmlFor="day" className="form__label">Date</label>
+                    <input type="date"
                      className="form__input"
                      id='day'
                      placeholder="Day & Time"
-                     value={day}
-                     onChange= { (e) => setDay(e.target.value)} />
+                     value={date}
+                     onChange= { (e) => setDate(e.target.value)} />
+                   
+                </div>
+                <div className="form__group">
+                <label htmlFor="day" className="form__label">Time</label>
+                    <input type="time"
+                     className="form__input"
+                     id='time'
+                     placeholder="Time"
+                     value={time}
+                     onChange= { (e) => setTime(e.target.value)} />
                    
                 </div>
                
@@ -64,8 +76,9 @@ const AddTask = ({onSave}) => {
 
 
             </form>
-
+          
         </div>
+        
     )
 }
 export default AddTask

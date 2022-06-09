@@ -64,6 +64,7 @@ function App() {
 
   }
   const editTask = (id) => {
+   
     const text = prompt('Enter new task');
     if (!text) {
       Swal.fire({
@@ -73,16 +74,7 @@ function App() {
 
       })
 
-    } else {
-      const day = prompt('Enter new day');
-      if (!day) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Ooops...',
-          text: 'Please fill in the day'
-
-        })
-      }
+    } 
       else {
         const data = JSON.parse(localStorage.getItem('taskAdded'));
         const myData = data.map(x => {
@@ -90,7 +82,6 @@ function App() {
             return {
               ...x,
               text: text,
-              day: day,
               id: uuidv4()
             }
 
@@ -109,7 +100,7 @@ function App() {
       }
 
 
-    }
+    
 
 
   }
@@ -118,10 +109,10 @@ function App() {
     <>
       <div className="app__container">
 
-        <div className='container' data-aos='zoom-in' data-aos-duration='2000'>
+        <div className='container' data-aos='zoom-in' data-aos-duration='4000'>
           <Header showForm={() => setShowAddTask(!showAddTask)} changeTextAndColor={showAddTask} />
 
-           {showAddTask && <AddTask onSave={addTask} />}
+           {showAddTask && <AddTask onSave={addTask}  />}
           {
             tasks.length > 0 ?
               (<Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} />) :
